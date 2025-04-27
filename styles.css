@@ -150,11 +150,50 @@
     border-bottom: 1px solid #222;
   }
   
-  section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ff9f1c;
-  }
+  /* Estilo para los títulos de las secciones */
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+  text-transform: uppercase;  /* Convertir el texto a mayúsculas */
+  font-weight: 600;
+  letter-spacing: 2px;  /* Espaciado de letras */
+}
+
+/* Agregar una animación de color y una línea decorativa al pasar el cursor */
+section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(45deg, #ff9f1c, #ff1654);  /* Línea decorativa con gradiente */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+/* Efecto de hover en los títulos */
+section h2:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Estilo para los enlaces dentro de cada sección */
+section a {
+  color: #ff9f1c;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+section a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
   
   #particles-js, .clouds {
     position: fixed;
@@ -173,11 +212,179 @@
   
   
   /* Todo el contenido encima del fondo */
-  header, .hero, section {
-    position: relative;
-    z-index: 1;
-  }
-  
+  /* Header */
+/* Header */
+/* Contenedor para el fondo desenfocado */
+header .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
+  z-index: 1;  /* Fondo está detrás de los elementos interactivos */
+  backdrop-filter: blur(10px); /* Filtro de desenfoque */
+}
+
+/* Header */
+/* Contenedor para el fondo desenfocado */
+header .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
+  z-index: 1;  /* Fondo está detrás de los elementos interactivos */
+  transition: backdrop-filter 0.3s ease; /* Transición para suavizar el cambio */
+}
+
+/* Aplicar filtro solo en modo claro */
+body.light-mode .header-background {
+  backdrop-filter: blur(10px); /* Filtro de desenfoque solo en modo claro */
+}
+
+/* Header */
+/* Contenedor para el fondo desenfocado */
+header .header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
+  z-index: 1; /* Fondo está detrás de los elementos interactivos */
+  transition: backdrop-filter 0.3s ease; /* Transición para suavizar el cambio */
+}
+
+/* Aplicar filtro solo en modo claro */
+body.light-mode .header-background {
+  backdrop-filter: blur(10px); /* Filtro de desenfoque solo en modo claro */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 15px 40px;
+  z-index: 2; /* Asegura que el header esté por encima del fondo */
+}
+
+/* Asegurar que el logo y los enlaces estén por encima del fondo */
+header .logo, nav a {
+  position: relative;
+  z-index: 3; /* Asegura que los enlaces sean interactivos */
+}
+
+/* Estilo del logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff9f1c;
+}
+
+/* Estilo para los enlaces del nav */
+nav a {
+  color: #ffffff; /* Color blanco por defecto */
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  z-index: 3; /* Asegura que los enlaces sean interactivos */
+  padding-bottom: 5px;
+}
+
+/* Enlaces interactivos */
+nav a:hover {
+  color: #ff9f1c; /* Color de hover */
+}
+
+/* Estilo de los enlaces (como el email, LinkedIn, GitHub) */
+.info a {
+  color: #ffffff; /* Asegura que los enlaces tengan color blanco por defecto */
+  text-decoration: none;
+  z-index: 3; /* Asegura que los enlaces sean interactivos */
+}
+
+.info a:hover {
+  color: #ff9f1c; /* Color de hover para los enlaces */
+}
+
+/* Animación de hover para los enlaces del nav */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ff9f1c;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+/* Mostrar la línea cuando el enlace se activa */
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Asegurarnos de que el filtro no afecta los enlaces */
+header .logo, nav a, .info a {
+  position: relative;
+  z-index: 3; /* Asegura que los elementos interactivos estén por encima del fondo */
+}
+
+/* Estilo para el modo claro */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-mode header {
+  background-color: #f0f0f0;
+}
+
+body.light-mode nav a {
+  color: #0000ee; /* Cambiar el color de los enlaces en el modo claro */
+}
+
+/* Fondo con partículas solo en modo oscuro */
+body.light-mode #particles-js {
+  opacity: 0;
+  pointer-events: none; /* No deja que el mouse interactúe con las partículas */
+}
+
+body.light-mode .clouds {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Fondo oscuro del body */
+body {
+  background-color: #0f0f1a;
+  color: #ffffff;
+}
+
+body.light-mode #particles-js {
+  display: none; /* Ocultamos partículas en modo claro */
+}
+
+/* Asegurarse de que el fondo de las secciones no cambie */
+section {
+  background: none;
+}
+
+/* Header en modo oscuro */
+header {
+  background: #1a1a2e;
+}
+
+ 
   #theme-toggle {
     background: none;
     border: none;
