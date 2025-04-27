@@ -1,0 +1,281 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f1a;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a2e;
+    padding: 15px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  nav a {
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    color: #ff9f1c;
+  }
+  
+  /* Hero section */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 40px 40px;
+    gap: 100px; /* Aumentamos el gap entre la información y la foto */
+  }
+  
+  .info {
+    max-width: 700px;
+  }
+  
+  .info h1 {
+    font-size: 2.5rem; /* Tamaño más pequeño */
+    margin-bottom: 10px;
+  }
+  
+  .info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff9f1c;
+  }
+  
+  .info ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo del contenedor de correo */
+.info ul li {
+    display: flex; /* Usamos flexbox para alinear el icono y el texto */
+    align-items: center; /* Alineamos verticalmente el icono y el texto */
+    margin-bottom: 10px;
+}
+
+/* Estilo del icono y el texto del correo */
+.info ul li a {
+    margin-left: 10px; /* Espacio entre el icono y el correo */
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 768px) {
+    .info ul li {
+        flex-direction: row; /* Alineamos icono y texto en fila */
+        justify-content: flex-start; /* Alineamos a la izquierda */
+    }
+
+    .info ul li a {
+        margin-left: 8px; /* Ajustamos el espacio entre icono y texto */
+    }
+}
+  
+.photo {
+    width: 250px; /* Tamaño fijo para el contenedor */
+    aspect-ratio: 1; /* Asegura que el contenedor siempre tenga una relación de aspecto 1:1 (cuadrado) */
+    border-radius: 50%; /* Hace que el contenedor sea un círculo */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+    border: 4px solid #ff9f1c; /* Borde alrededor de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen dentro del contenedor */
+.photo img {
+    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+    height: 100%; /* La imagen ocupará el 100% del alto del contenedor */
+    object-fit: cover; /* Asegura que la imagen se recorte para llenar el círculo */
+}
+
+/* En dispositivos móviles */
+@media (orientation: portrait) {
+    .photo {
+        width: 150px; /* Reducimos el tamaño del círculo */
+    }
+}
+
+/* Ocultar la foto en modo vertical */
+@media (orientation: portrait) {
+    .photo {
+        display: none; /* Oculta el contenedor de la foto */
+    }
+}
+
+  
+  /* Botón Animado */
+  .animated-button {
+    background: linear-gradient(45deg, #ff9f1c, #ff1654);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.4s ease;
+  }
+  
+  .animated-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff9f1c;
+  }
+  
+  /* Secciones */
+  section {
+    padding: 80px 40px;
+    border-bottom: 1px solid #222;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff9f1c;
+  }
+  
+  #particles-js, .clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: opacity 1s ease; /* <- Transición suave */
+  }
+  
+  #particles-js {
+    background: transparent;
+    opacity: 1;
+  }
+  
+  
+  /* Todo el contenido encima del fondo */
+  header, .hero, section {
+    position: relative;
+    z-index: 1;
+  }
+  
+  #theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  #theme-toggle:hover {
+    transform: rotate(20deg);
+  }
+  
+  /* Tema oscuro (por defecto) */
+  body {
+    background-color: #0f0f1a;
+    color: #ffffff;
+  }
+  
+  /* Tema claro */
+  body.light-mode {
+    background: linear-gradient(to top, #87CEEB, #ffffff); /* Degradado de azul claro a blanco */
+    color: #000000;
+  }
+  
+  body.light-mode #particles-js {
+    opacity: 0;
+    pointer-events: none; /* No captura eventos cuando está invisible */
+  }
+
+  body.light-mode header {
+    background: #f0f0f0;
+  }
+  
+  body.light-mode #particles-js {
+    background-color: #ffffff;
+  }
+  
+  /* Links también cambian en claro */
+  body.light-mode a {
+    color: #0000ee;
+  }
+  
+  body.light-mode #particles-js {
+    display: none; /* Ocultamos partículas en modo claro */
+  }
+  
+  .photo {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Agregamos una transición para un efecto suave */
+  }
+  
+  .photo:hover {
+    transform: scale(1.1); /* Aumentamos el tamaño del círculo al pasar el cursor */
+  }
+  
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  #sobre-mi {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.1), rgba(255, 22, 84, 0.1)); /* Fondo suave y colorido */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 40px 0; /* Espacio alrededor */
+  }
+  
+  #sobre-mi h2 {
+    font-size: 2rem;
+    color: #ff9f1c;
+    margin-bottom: 20px;
+  }
+  
+  #sobre-mi p {
+    font-size: 1.2rem;
+    color: #ddd;
+    line-height: 1.8;
+    text-align: justify;
+  }
+  
+  /* Estilos para el modo claro */
+body.light-mode #sobre-mi {
+    background: linear-gradient(135deg, rgba(25, 39, 53, 0.1), rgba(0, 19, 45, 0.1)); /* Fondo azul oscuro en modo claro */
+  }
+  
+  body.light-mode #sobre-mi h2 {
+    color: #ff9f1c; /* Mantener el color naranja del título */
+  }
+  
+  body.light-mode #sobre-mi p {
+    color: #000; /* Texto negro en modo claro */
+  }
+  
