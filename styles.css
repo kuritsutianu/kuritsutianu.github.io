@@ -812,3 +812,75 @@ body.light-mode #educacion {
     max-width: 100%;
   }
 }
+
+/* Estilos para la sección de certificaciones */
+#certificaciones {
+  background-color: #1a1a2e;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+#certificaciones h2 {
+  color: #ff9f1c;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.certificaciones-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.certificacion {
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.certificacion h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ff9f1c;
+}
+
+.certificacion p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+.certificacion-link {
+  background-color: #ff9f1c;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.certificacion-link:hover {
+  background-color: #ff1654;
+}
+
+.certificacion:hover {
+  transform: translateY(-10px);
+  background-color: #444;
+}
+
+@media (max-width: 768px) {
+  .certificacion {
+    max-width: 100%;
+  }
+}
