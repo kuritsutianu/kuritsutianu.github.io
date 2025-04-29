@@ -95,7 +95,8 @@
 }
   
 .photo {
-    width: 250px; /* Tamaño fijo para el contenedor */
+    width: 250px;
+    height: 250px; /* Tamaño fijo para el contenedor */
     aspect-ratio: 1; /* Asegura que el contenedor siempre tenga una relación de aspecto 1:1 (cuadrado) */
     border-radius: 50%; /* Hace que el contenedor sea un círculo */
     overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
@@ -211,32 +212,19 @@ section a:hover {
   }
   
   
-  /* Todo el contenido encima del fondo */
-  /* Header */
+/* Todo el contenido encima del fondo */
 /* Header */
 /* Contenedor para el fondo desenfocado */
-header .header-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
-  z-index: 1;  /* Fondo está detrás de los elementos interactivos */
-  backdrop-filter: blur(10px); /* Filtro de desenfoque */
-}
 
-/* Header */
-/* Contenedor para el fondo desenfocado */
 header .header-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
-  z-index: 1;  /* Fondo está detrás de los elementos interactivos */
-  transition: backdrop-filter 0.3s ease; /* Transición para suavizar el cambio */
+  background: rgba(26, 26, 46, 0.7);
+  z-index: 1;
+  transition: backdrop-filter 0.3s ease;
 }
 
 /* Aplicar filtro solo en modo claro */
@@ -244,18 +232,6 @@ body.light-mode .header-background {
   backdrop-filter: blur(10px); /* Filtro de desenfoque solo en modo claro */
 }
 
-/* Header */
-/* Contenedor para el fondo desenfocado */
-header .header-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(26, 26, 46, 0.7); /* Fondo semitransparente */
-  z-index: 1; /* Fondo está detrás de los elementos interactivos */
-  transition: backdrop-filter 0.3s ease; /* Transición para suavizar el cambio */
-}
 
 /* Aplicar filtro solo en modo claro */
 body.light-mode .header-background {
@@ -359,11 +335,6 @@ body.light-mode #particles-js {
   pointer-events: none; /* No deja que el mouse interactúe con las partículas */
 }
 
-body.light-mode .clouds {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 /* Fondo oscuro del body */
 body {
   background-color: #0f0f1a;
@@ -385,18 +356,24 @@ header {
 }
 
  
-  #theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-left: 1rem;
-    transition: transform 0.3s ease;
-  }
-  
-  #theme-toggle:hover {
-    transform: rotate(20deg);
-  }
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg);
+}
   
   /* Tema oscuro (por defecto) */
   body {
@@ -628,6 +605,20 @@ body.light-mode #educacion {
   background-color: #f0f0f0; /* Fondo claro para la sección */
 }
 
+/* Enlaces en modo claro (azul, como ya teníamos) */
+body.light-mode #habilidades a {
+  color: #0000ee; /* Color azul para los enlaces en modo claro */
+}
+
+body.light-mode #habilidades a:hover {
+  color: #ff9f1c; /* Color naranja para el hover */
+  text-decoration: underline; /* Subrayado */
+}
+
+/* Fondo para la sección de educación en modo oscuro */
+body.dark-mode #habilidades {
+  background-color: #1a1a2e; /* Fondo oscuro para la sección */
+}
 
 
 
@@ -650,8 +641,9 @@ body.light-mode #educacion {
 
 
 /* Sección de Idiomas */
+/* Sección de Idiomas */
 #idiomas {
-  background-color: #1a1a2e;
+  background-color: #1a1a2e; /* Por defecto, modo oscuro */
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -669,7 +661,9 @@ body.light-mode #educacion {
   align-items: center;
   margin-bottom: 15px;
   padding: 10px;
+  background-color: #1a1a2e;
   border-bottom: 1px solid #333;
+  border-radius: 4px;
 }
 
 .idioma {
@@ -683,6 +677,7 @@ body.light-mode #educacion {
   font-weight: bold;
 }
 
+/* Hover (ambos modos) */
 .idioma-item:hover {
   background-color: #333;
   cursor: pointer;
@@ -691,6 +686,24 @@ body.light-mode #educacion {
 
 .idioma-item:hover .nivel {
   color: #ffffff;
+}
+
+/* Modo claro: fondo exterior claro, items oscuros */
+body.light-mode #idiomas {
+  background-color: #f0f0f0; /* Fondo claro exterior */
+}
+
+body.light-mode .idioma-item {
+  background-color: #1a1a2e; /* Fondo oscuro para los items */
+  border-bottom: 1px solid #ccc;
+}
+
+body.light-mode .idioma {
+  color: #ffffff;
+}
+
+body.light-mode .nivel {
+  color: #ff9f1c;
 }
 
 /* Estilos para la sección de competencias digitales */
@@ -706,6 +719,19 @@ body.light-mode #educacion {
   color: #ff9f1c;
   margin-bottom: 30px;
   font-size: 2rem;
+}
+
+/* Fondo para la sección de educación en modo claro */
+body.light-mode #habilidades {
+  background-color: #f0f0f0; /* Fondo claro para la sección */
+}
+
+body.light-mode #proyectos {
+  background-color: #f0f0f0; /* Fondo claro para la sección */
+}
+
+body.light-mode #certificaciones {
+  background-color: #f0f0f0; /* Fondo claro para la sección */
 }
 
 .habilidades-container {
@@ -883,4 +909,83 @@ body.light-mode #educacion {
   .certificacion {
     max-width: 100%;
   }
+}
+
+.navbar {
+  background-color: #141322;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: #ffa500;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menú normal (desktop) */
+.nav-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-links a, .nav-links button {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  transition: background 0.3s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Menú móvil (cuando colapsa) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    flex-direction: column;
+  }
+  
+  .nav-links.show {
+    max-height: 500px; /* lo suficiente para mostrar todos los enlaces */
+    opacity: 1;
+  }
+  
+
+  .nav-links a, .nav-links button {
+    text-align: left;
+    padding: 10px;
+  }
+}
+
+
+.container {
+  display: block; /* Cambia de flex a block si es necesario */
 }

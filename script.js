@@ -5,17 +5,19 @@ document.getElementById('download-cv').addEventListener('click', function() {
 
 // Toggle modo claro / oscuro
 const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', function() {
-    
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('light-mode');
-  
-  if (document.body.classList.contains('light-mode')) {
-    themeToggle.textContent = "🌞"; // Modo claro: muestra sol
-    checkThemeAndToggleClouds();
-  } else {
-    themeToggle.textContent = "🌙"; // Modo oscuro: muestra luna
-  }
-});
+
+    if (document.body.classList.contains('light-mode')) {
+      themeToggle.textContent = "🌞";
+      if (typeof checkThemeAndToggleClouds === 'function') checkThemeAndToggleClouds();
+    } else {
+      themeToggle.textContent = "🌙";
+    }
+  });
+}
 
 
 // Configuración de particles.js
@@ -75,3 +77,11 @@ particlesJS('particles-js', {
     retina_detect: true
   });  
 
+
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+  
